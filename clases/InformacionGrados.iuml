@@ -1,0 +1,5 @@
+Class InformacionGrados <<Entidad>> {
+    nombre
+    añoAcademico
+    creditos
+}

@@ -1,0 +1,5 @@
+Class InformacionGrupos <<Entidad>> {
+    nombre
+    añoAcademico
+    grupo
+}

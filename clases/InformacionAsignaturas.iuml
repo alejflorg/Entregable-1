@@ -1,0 +1,7 @@
+Class InformacionAsignaturas <<Entidad>> {
+    nombre
+    acronimo
+    creditos
+    curso
+    tipo: TipoAsignatura
+}

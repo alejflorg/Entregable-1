@@ -1,0 +1,5 @@
+Class Nota <<Entidad>> {
+    valorNumerico
+    numeroDeConvocatoria
+    matriculaDeHonor: MatriculaDeHonor
+}

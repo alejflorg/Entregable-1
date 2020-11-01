@@ -1,0 +1,5 @@
+Class InformacionTutorias <<Entidad>> {
+    diaSemana: DiaSemana
+    horaComienzo
+    horaFinal
+}

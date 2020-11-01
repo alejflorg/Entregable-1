@@ -1,0 +1,7 @@
+Class InformacionEspacios {
+    nombreEspacio
+    planta
+    capacidad
+    espacios: TipoEspacios
+    actividad: Actividad
+}

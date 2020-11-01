@@ -1,0 +1,8 @@
+Class InformacionAlumnos <<Entidad>> {
+    DNI
+    nombre
+    apellidos
+    fechaNacimiento
+    email
+    metodoAcceso: MetodoAcceso
+}

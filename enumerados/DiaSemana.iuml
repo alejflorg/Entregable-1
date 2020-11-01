@@ -1,0 +1,7 @@
+Enum DiaSemana <<Enumerate>> {
+    Lunes
+    Martes
+    Miercoles
+    Jueves
+    Viernes
+}

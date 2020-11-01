@@ -1,0 +1,137 @@
+@startuml
+
+title Información sobre docentes
+
+!include estilos/draft.iuml
+' Clases
+!include clases/InformacionProfesores.iuml
+
+' Enumerates
+!include enumerados/Categoria.iuml
+
+@enduml
+
+' -------------------------------------------------------------
+
+@startuml
+
+title Información sobre tutorías
+
+!include estilos/draft.iuml
+' Clases
+!include clases/InformacionTutorias.iuml
+!include clases/CitaTutoria.iuml
+
+' Enumerates
+!include enumerados/DiaSemana.iuml
+
+' Asociaciones
+InformacionTutorias *-right- CitaTutoria
+
+@enduml
+
+' -------------------------------------------------------------
+
+@startuml
+
+title Información sobre espacios
+
+!include estilos/draft.iuml
+' Clases
+!include clases/InformacionEspacios.iuml
+!include clases/Aula.iuml
+!include clases/Despacho.iuml
+
+' Enumerates
+!include enumerados/Actividad.iuml
+
+' Asociaciones
+InformacionEspacios *-left- Aula
+InformacionEspacios *-right- Despacho
+
+@enduml
+
+' -------------------------------------------------------------
+
+@startuml
+
+title Información sobre asignaturas
+
+!include estilos/draft.iuml
+' Clases
+!include clases/InformacionAsignaturas.iuml
+
+' Enumerates
+!include enumerados/TipoAsignatura.iuml
+
+@enduml
+
+' -------------------------------------------------------------
+
+@startuml
+
+title Información sobre departamentos
+
+!include estilos/draft.iuml
+' Clases
+!include clases/InformacionDepartamentos.iuml
+
+@enduml
+
+' -------------------------------------------------------------
+
+@startuml
+
+title Informacion sobre alumnos
+
+!include estilos/draft.iuml
+' Clases
+!include clases/InformacionAlumnos.iuml
+
+' Enumerates
+!include enumerados/MetodoAcceso.iuml
+
+@enduml
+
+' -------------------------------------------------------------
+
+@startuml
+
+title Informacion sobre grados
+
+!include estilos/draft.iuml
+' Clases
+!include clases/InformacionGrados.iuml
+
+note right of InformacionGrados
+El número de créditos se calcula 
+como el número de años multiplicado 
+por 60. Varias asignaturas forman 
+parte de un grado y una asignatura 
+pertenece a un único grado.
+end note
+
+@enduml
+
+' -------------------------------------------------------------
+
+@startuml
+
+title Informacion sobre grupos
+
+!include estilos/draft.iuml
+' Clases
+!include clases/InformacionGrupos.iuml
+
+' Enumerate
+!include enumerados/Actividad.iuml
+
+note bottom of Actividad
+Un grupo de actividad de teoría 
+debe tener al menos 15 alumnos, 
+en el que se imparten clases de 
+una asignatura y se obtienen 
+notas para estos alumnos.
+end note
+
+@enduml

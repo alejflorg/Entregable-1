@@ -1,0 +1,4 @@
+Enum Proyector <<Enumerate>> {
+    si
+    no
+}

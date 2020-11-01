@@ -1,0 +1,6 @@
+Enum Categoria << Enumerado >> {
+    catedrático
+    titularDeUniversidad
+    profesorContratadoDoctor
+    profesorAyudanteDoctor
+}

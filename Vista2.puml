@@ -1,0 +1,141 @@
+
+@startuml
+
+!include estilos/final.iuml
+
+!include clases/InformacionAsignaturas.iuml
+!include enumerados/TipoAsignatura.iuml
+!include clases/InformacionDepartamentos.iuml
+!include clases/InformacionProfesores.iuml
+!include enumerados/Categoria.iuml
+!include clases/InformacionAlumnos.iuml
+!include enumerados/MetodoAcceso.iuml
+!include clases/InformacionGrados.iuml
+!include clases/InformacionGrupos.iuml
+!include enumerados/Actividad.iuml
+!include clases/Nota.iuml
+
+note left of InformacionGrados
+El número de créditos
+se calcula como el 
+número de años multiplicado
+por 60. Varias asignaturas
+forman parte de un grado
+y una asignatura pertenece
+a un único grado.
+end note
+
+
+
+note right of Nota
+Cada nota está formada
+por un valor numérico 
+entre 0.0 y 10.0.
+Un alumno puede agotar 
+hasta seis convocatorias 
+para aprobar la asignatura.
+end note
+
+note top of InformacionProfesores
+Garantizar que 
+un profesor no 
+imparte más de 
+24 créditos por 
+curso académico.
+end note
+
+note bottom of InformacionProfesores
+Los profesores que 
+imparten una 
+asignatura deben 
+pertenecer al 
+departamento que 
+asume la 
+asignatura.
+end note
+
+note left of InformacionAlumnos
+Un alumno no 
+puede matricularse 
+en más de 90 
+créditos o menos 
+de 30 en un curso 
+académico.
+end note
+
+note left of Nota
+Para que una nota 
+sea matrícula de honor 
+es necesario que su 
+valor sea igual o 
+superior a 9.
+end note
+
+note top of Nota
+Un alumno no 
+puede tener más 
+de una nota para 
+la misma asignatura, 
+convocatoria y año 
+académico.
+end note
+
+note bottom of InformacionAlumnos
+Un alumno no puede
+acceder por 
+selectividad 
+teniendo menos 
+de 16 años.
+end note
+
+note as N1
+Un alumno no 
+puede tener 
+notas en grupos 
+a los que no 
+pertenece.
+end note
+N1 .. InformacionAlumnos
+N1 ..... InformacionGrupos
+
+note top of Nota
+Una nota no puede 
+alterarse de una 
+vez en más de 4 
+puntos (aumentada 
+o disminuida).
+end note
+
+note right of InformacionAsignaturas
+un acrónimo tiene 
+que estar bien formado, 
+se entiende que lo está 
+cuando coincide con las 
+letras mayúsculas que 
+aparecen en el nombre 
+de la asignatura.
+end note
+
+note left of InformacionProfesores
+En un año académico 
+un profesor no puede 
+impartir docencia en 
+más de 5 grupos.
+end note
+
+
+
+InformacionAsignaturas "formadasPor"-> InformacionGrupos
+InformacionProfesores "impartenEn"------> InformacionGrupos
+InformacionDepartamentos "asumeDocenciaDe"--> InformacionAsignaturas
+InformacionProfesores "perteneceA 1"--> InformacionDepartamentos
+InformacionAlumnos "obtienenNotasEn"--> InformacionAsignaturas
+InformacionAlumnos --> InformacionGrupos
+InformacionAlumnos "obtiene"---> Nota
+Nota "correspondenA"--> InformacionAsignaturas
+InformacionGrupos -[hidden]> InformacionGrados
+'Actividad -[hidden]> MetodoAcceso
+InformacionAsignaturas "pertenecenA"--> InformacionGrados
+
+
+@enduml

@@ -1,0 +1,108 @@
+@startuml
+
+!include estilos/final.iuml
+
+!include clases/InformacionEspacios.iuml
+!include clases/Aula.iuml
+!include clases/Despacho.iuml
+!include clases/InformacionTutorias.iuml
+!include clases/CitaTutoria.iuml
+!include enumerados/DiaSemana.iuml
+!include enumerados/Actividad.iuml
+!include clases/InformacionProfesores.iuml
+!include enumerados/Categoria.iuml
+!include clases/InformacionAlumnos.iuml
+!include enumerados/MetodoAcceso.iuml
+!include enumerados/Megafonia.iuml
+!include enumerados/Proyector.iuml
+
+note right of Despacho
+Puede ser compartido 
+siendo la capacidad
+ de este mayor que 
+uno
+end note
+
+note top of InformacionTutorias
+Un profesor no 
+puede impartir
+más de 6 horas 
+de tutoría a la 
+semana.
+end note
+
+note bottom of CitaTutoria
+Una cita para tutoría 
+estará definida por 
+una hora que debe estar 
+entre la hora de comienzo 
+y fin de la tutoría 
+correspondiente, así 
+como por una fecha.
+end note
+
+note top of InformacionEspacios
+Un grupo de actividad
+de teoría debe tener
+al menos 15 alumnos,
+en el que se imparten
+clases de una asignatura
+y se obtienen notas
+para estos alumnos.
+end note
+
+note top of InformacionEspacios
+Un grupo de teoría 
+no puede tener más 
+de 75 alumnos, y 
+uno de laboratorio 
+no más de 25.
+end note
+
+note bottom of Aula
+Cada aula debe 
+tener capacidad 
+suficiente para 
+los grupos que 
+se imparten en 
+la misma.
+end note
+
+note right of InformacionEspacios
+El nombre de un 
+espacio sigue el 
+siguiente formato 
+(dependiendo de si 
+es despacho o aula): 
+{D|A}.{Planta}.{Natural}. 
+Ej: D.0.23 (despacho 
+23 de la planta baja), 
+A.1.14 (aula 14 de 
+la planta 1).
+end note
+
+note bottom of InformacionAlumnos
+Los correos tienen 
+que estar bien 
+formados (contienen @, 
+y un punto).
+end note
+
+note as N3
+Un profesor PAD 
+no puede dar más 
+de 2h de tutorías 
+a la semana.
+end note
+N3 . InformacionTutorias
+N3 . InformacionProfesores
+
+InformacionEspacios *-l- Aula
+Actividad -[hidden]- InformacionEspacios
+InformacionEspacios "1.." *-down- "..*" Despacho
+Despacho <-- InformacionProfesores :tienenAsignado
+InformacionTutorias *-down- CitaTutoria
+InformacionTutorias <-up- InformacionProfesores :ofrecen
+CitaTutoria  <-up- InformacionAlumnos: solicitan
+
+@enduml

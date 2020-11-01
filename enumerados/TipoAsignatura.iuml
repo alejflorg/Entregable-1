@@ -1,0 +1,5 @@
+Enum TipoAsignatura <<Enumerate>> {
+    obligatoria
+    optativa
+    formacionBasica
+}
